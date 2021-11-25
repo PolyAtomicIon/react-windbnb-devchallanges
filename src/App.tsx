@@ -4,16 +4,14 @@ import './App.css';
 import {Button} from './components/button'
 import {Input} from './components/input'
 
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
 const customStyles = {
   content: {
     top: '50%',
     left: '50%',
-    right: 'auto',
+    width: '100%',
     bottom: 'auto',
-    marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
 };
@@ -30,7 +28,7 @@ function App() {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
+    subtitle.style.color = '#FF0000';
   }
 
   function closeModal() {
@@ -51,6 +49,7 @@ function App() {
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="Example Modal"
+          overlayClassName="Overlay"
         >
           <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
           <button onClick={closeModal}>close</button>
